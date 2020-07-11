@@ -8,6 +8,8 @@ import { faUserCircle, faMoneyBillWave, faCheckCircle } from '@fortawesome/free-
 import api from '../../Services/api';
 import { withRouter } from 'react-router-dom';
 
+import { login } from '../../Services/auth';
+
 class FormRegister extends React.Component{
     constructor(props){
         super();
@@ -34,7 +36,10 @@ class FormRegister extends React.Component{
         else{
             try {
 
-                await api.post("/sessions", { Name, Email, Password })
+                const response = await api.post("/sessions", { Name, Email, Password })
+
+                console.log(response.data.token)
+                login(response.data.token);
                 history.push("/")
 
             } catch (err) {
