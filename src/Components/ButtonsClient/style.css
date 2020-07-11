@@ -1,0 +1,28 @@
+.container-ButtonsClient{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 30vh;
+    
+}
+
+.btn-client{
+    width: 200px;
+    border: none;
+    color: #F8EEE7;
+    background: #49274A;
+    font-family: Ubuntu;
+    font-weight: bold;
+    border-radius: 16px;
+    font-size: 15px;
+    transition: all linear .3s;
+
+}
+
+.btn-client:hover{
+    background-color: #F8EEE7;
+    color: #49274A;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}

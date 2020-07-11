@@ -1,0 +1,49 @@
+.container-CadastrarHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.CadastrarHeaderTitle{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 20px;
+    letter-spacing: -1px;
+
+    color: #F8EEE7;
+}
+
+.CadastrarHeadersubtitle{
+
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    
+    color: #F8EEE7;
+
+}
+
+@media only screen and (max-width: 1200px){
+    .CadastrarHeadersubtitle{
+
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 20px;
+        letter-spacing: 1px;
+        
+        color: #F8EEE7;
+        width: 300px;
+        
+        text-align: center;
+    
+    }
+}

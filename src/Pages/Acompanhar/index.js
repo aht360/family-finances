@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 
 import Navbar from '../../Components/Navbar/index';
-import ClientHeader from '../../Components/ClientHeader/index';
-import ButtonsClient from '../../Components/ButtonsClient/index';
+import HeaderAcompanhar from '../../Components/HeaderAcompanhar/index';
+import Gastos from '../../Components/Gastos/index';
 import Footer from '../../Components/Footer/index';
+
 
 import { Spinner } from 'react-bootstrap';
 import './style.css';
@@ -11,8 +13,8 @@ import './style.css';
 import api from '../../Services/api';
 import { getToken } from '../../Services/auth';
 
-class client extends Component{
-    
+class Acompanhar extends React.Component{
+
     constructor(){
         super();
 
@@ -21,11 +23,9 @@ class client extends Component{
                 Name: ''
             }
         }
-
     }
 
     async componentDidMount(){
-        
         const my_token = getToken();
 
         var response = await api.get('/user', {
@@ -44,10 +44,11 @@ class client extends Component{
 
     }
 
-    render(){
-        
-        const { user } = this.state;
 
+    render(){
+
+        const { user } = this.state;
+        
         return(
             <>
                 {
@@ -60,8 +61,8 @@ class client extends Component{
                         <div className="container-client">
                             <Navbar />
                             <div className="container-client-page">
-                                <ClientHeader  user={user} />
-                                <ButtonsClient />
+                                <HeaderAcompanhar user={user} />
+                                <Gastos />
 
 
                             </div>
@@ -75,4 +76,4 @@ class client extends Component{
     }
 }
 
-export default client;
+export default Acompanhar;

@@ -1,0 +1,41 @@
+.container-cadastrarForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 30vh;
+}
+
+.pagamento-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.pagamento-form-label{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 0px;
+    letter-spacing: 0px;
+
+    color: #F8EEE7;
+}
+
+.input-pagamento-form{
+    border: none;
+    border-radius: 4px;
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    background-color: white;
+}
+
+.form-cadastrar-pagamento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

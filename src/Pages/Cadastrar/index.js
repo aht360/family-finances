@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './style.css';
 
 import Navbar from '../../Components/Navbar/index';
-import ClientHeader from '../../Components/ClientHeader/index';
-import ButtonsClient from '../../Components/ButtonsClient/index';
+import CadastrarHeader from '../../Components/CadastrarHeader/index';
+import CadastrarForm from '../../Components/CadastrarForm/index';
 import Footer from '../../Components/Footer/index';
 
 import { Spinner } from 'react-bootstrap';
-import './style.css';
 
 import api from '../../Services/api';
 import { getToken } from '../../Services/auth';
 
-class client extends Component{
-    
-    constructor(){
-        super();
+class Cadastrar extends React.Component{
+
+    constructor(props){
+
+        super(props);
 
         this.state = {
             user: {
@@ -45,10 +46,10 @@ class client extends Component{
     }
 
     render(){
-        
-        const { user } = this.state;
 
+        const { user } = this.state;
         return(
+
             <>
                 {
                     user.Name === '' ?
@@ -60,19 +61,17 @@ class client extends Component{
                         <div className="container-client">
                             <Navbar />
                             <div className="container-client-page">
-                                <ClientHeader  user={user} />
-                                <ButtonsClient />
-
-
+                                <CadastrarHeader  user={user} />
+                                <CadastrarForm user={user} />
                             </div>
                             <Footer />
                         </div>
-
                 }
-                
+
             </>
         );
+
     }
 }
 
-export default client;
+export default Cadastrar;
