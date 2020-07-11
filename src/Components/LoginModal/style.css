@@ -1,0 +1,93 @@
+.modal-body{
+    min-height: 50vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loginModalTitle{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    letter-spacing: 0.03em;
+
+    color: #000000;
+}
+
+.container-input-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    height: 200px;
+    border: none;
+    border-radius: 4px;
+}
+
+.input-login{
+    width: 236px;
+    height: 40px;
+    text-align: center;
+}
+
+.btn-login{
+    width: 236px;
+    height: 40px;
+
+    border: none;
+    background: #94618E;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+.longinModal-footer{
+    margin-top: 10px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.03em;
+
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
+
+.accountcreate{
+    color: #94618E;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.footer-modal{
+    display: flex;
+    justify-content: center;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.03em;
+
+    color: #5c5c5c;
+    margin-bottom: 50px;
+}
+
+.close-icon-modal{
+    position: absolute;
+    top: 20px;
+    left: 95%;
+    transform: translateX(-100%);
+    font-size: 26px;
+    cursor: pointer;
+}

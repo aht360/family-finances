@@ -1,0 +1,85 @@
+/* Add a black background color to the top navigation */
+.container-topnav{
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+}
+
+.topnav {
+    overflow: hidden;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1200px;
+  }
+  
+  /* Style the links inside the navigation bar */
+.topnav-item {
+    float: left;
+    display: block;
+    
+    text-align: center;
+    padding: 7px 16px;
+    text-decoration: none;
+
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+
+    color: #49274A;
+    margin-left: 50px;
+    cursor: pointer;
+}
+  
+.topnav-item:hover {
+    text-decoration: none;
+    color: #94618E;
+    border-bottom: 1px solid #94618E;
+}
+
+
+
+.my-brand{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: -0.5px;
+    
+    color: white;
+    
+    padding: 7px 16px;
+
+    background-color: #49274A;
+    border-radius: 4px;
+    text-transform: uppercase;
+    
+
+    transition: all linear .2s;
+}
+
+.my-brand:hover{
+    
+    text-decoration: none;
+    color: white;
+
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+
+@media only screen and (max-width: 1200px){
+    .topnav-item {
+        margin-left: 0px;
+    
+    }
+    .my-brand{
+        margin-left: 15px;
+    }
+
+}

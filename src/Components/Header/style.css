@@ -1,0 +1,114 @@
+.container-header{
+    background: #94618E;
+    min-height: 75vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container-header-content{
+    
+}
+
+.container-header-content-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 51px;
+    height: 50vh;
+    justify-content: space-evenly;
+}
+
+.header-title-top{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 77px;
+    letter-spacing: 0.03em;
+
+    color: #F8EEE7;
+}
+
+.header-title-middle{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: 0.03em;
+
+    color: #F8EEE7;
+    width: 500px;
+}
+
+.header-title-bottom{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+
+    color: #F8EEE7;
+    width: 380px;
+}
+
+.header-btn{
+    width: 150px;
+    border: none;
+    color: #F8EEE7;
+    background: #49274A;
+    font-family: Ubuntu;
+    font-weight: bold;
+    border-radius: 16px;
+    font-size: 15px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    transition: all linear .3s;
+}
+
+.header-btn:hover{
+    transform: translateY(-3px);
+    
+}
+
+.header-img-content{
+    transition: all linear .3s;
+}
+
+.header-img-content:hover{
+    transform: rotateY(10deg);
+}
+
+
+
+@media only screen and (max-width: 1200px){
+    .header-img-content{
+        width: 100%;
+    }
+
+    .header-title-top{
+        font-size: 38px;
+        letter-spacing: -1px;
+    }
+
+    .container-header-content-text{
+        margin-left: 0px;
+        height: fit-content;
+    }
+
+    .header-title-middle{
+        width: 350px;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: -1px;
+    }
+
+    .header-title-bottom{
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: -1px;
+        width: 320px;
+    }
+
+}
