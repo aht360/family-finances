@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 
-import Navbar from '../../Components/Navbar/index';
-import Header from '../../Components/Header/index';
-import Footer from '../../Components/Footer/index';
+import { isAuthenticated, logout } from '../../Services/auth';
+
+import StartPage from '../../Pages/StartPage/index';
+import Client from '../../Pages/Client/index';
 
 class Home extends Component{
+
+    handleLogOut = () => {
+        logout();
+
+        window.location.reload();
+    }
+
     render(){
+        
         return(
-            <div className="container-home">
-                <Navbar />
-                <Header />
-                <Footer />
-            </div>
+            <>
+                {
+                    !isAuthenticated() ?
+                        <StartPage />
+                    :
+                        <Client />
+                }
+            </>
         );
     }
 }

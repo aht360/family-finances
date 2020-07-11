@@ -1,10 +1,14 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Modal, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
+
+import api from '../../Services/api';
+
+import { login } from '../../Services/auth';
 
 
 class LoginModal extends React.Component {
@@ -14,6 +18,10 @@ class LoginModal extends React.Component {
         this.handleClose = this.handleClose.bind(this);
         this.state = {
             show: false,
+            Email: "",
+            Password: "",
+            error_msg: "",
+            waiting: false
         }
     }
 
@@ -25,8 +33,39 @@ class LoginModal extends React.Component {
         this.setState({ show: false })
     }
 
+    handleSignIn = async e => {
+        e.preventDefault();
+
+        const { Email, Password } = this.state;
+
+        this.setState({ waiting: true });
+
+        console.log(Email, Password)
+
+        try {
+            const response = await api.post("/authenticate", { Email, Password });
+
+            login(response.data.token);
+
+            window.location.reload();
+
+        } catch (err) {
+            
+            this.setState({ waiting: false });
+            this.setState({
+                error_msg:
+                    "Login ou senha inválidos."
+            });
+
+        }
+        
+    };
+
 
     render() {
+
+        const { waiting, error_msg } = this.state;
+
         return (
         <div>
 
@@ -40,23 +79,51 @@ class LoginModal extends React.Component {
                 >
                     <Modal.Body className="modal-body">
                         <FontAwesomeIcon icon={faTimes} onClick={this.handleClose} className="close-icon-modal"/>
+
+
+                        
                         <p className="loginModalTitle">
                             Entrar
                         </p>
 
-                        <div className="container-input-login">
-                            <input type="email" className="input-login" placeholder="Seu email" />
-                            <input type="password" className="input-login" placeholder="Sua senha" />
-                            <button className="btn-login">Entrar</button>
-                        </div>
+                        <form className="container-input-login" onSubmit={this.handleSignIn} >
+
+                            <input 
+                                type="email"
+                                className="input-login"
+                                placeholder="Seu email"
+                                required
+                                onChange={e => this.setState({ Email: e.target.value })}
+                            />
+
+                            <input
+                                type="password"
+                                className="input-login"
+                                placeholder="Sua senha"
+                                required
+                                onChange={e => this.setState({ Password: e.target.value })}
+                            />
+
+                            <button className="btn-login" type="submit" >Entrar</button>
+
+                        </form>
 
                         <div className="longinModal-footer">
                             Não tem conta? 
-                            <p className="accountcreate">
+                            <Link to="/register" className="accountcreate">
                                 Crie sua conta
-                            </p>
+                            </Link>
                         </div>
 
+                        <div className="spinner-container">
+                            { waiting && <Spinner animation="border" variant="secondary" className="spinnerLogin" /> }
+                        </div>
+
+                        <div className="erromsg-container-login">
+                            <p className="errormsg-login">
+                                {error_msg}
+                            </p>
+                        </div>
                         
 
                     </Modal.Body>

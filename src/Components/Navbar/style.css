@@ -5,6 +5,44 @@
     height: 10vh;
 }
 
+.logo-navbar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 245px;
+
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 0px;
+    letter-spacing: -1px;
+    color: white;
+    padding: 7px 16px;
+    background-color: #49274A;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: all linear .2s;
+    cursor: pointer;
+}
+
+.logo-navbar-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+
+.logo-nav-content{
+    line-height: 0px;
+    margin: 0px;
+}
+
+.logo-icon-nav{
+    font-size: 16px;
+    line-height: 0px;
+}
+
 .topnav {
     overflow: hidden;
     height: 10vh;
@@ -94,6 +132,21 @@
 
     .topnav-content{
         margin-right: 10px;
+    }
+
+
+    .logo-navbar-container{
+        width: 180px;
+        font-size: 16px;
+        letter-spacing: -1px;
+        padding: 7px 16px;
+        margin-left: 15px;
+        
+    }
+
+    .logo-icon-nav{
+        font-size: 12px;
+        line-height: 0px;
     }
 
 }
