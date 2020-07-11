@@ -39,7 +39,8 @@
     letter-spacing: 0.03em;
 
     color: #F8EEE7;
-    width: 500px;
+    width: 450px;
+    min-height: 70px;
 }
 
 .header-title-bottom{
@@ -72,6 +73,7 @@
     
 }
 
+
 .header-img-content{
     transition: all linear .3s;
 }
@@ -98,10 +100,11 @@
     }
 
     .header-title-middle{
-        width: 350px;
+        width: 250px;
         font-size: 18px;
         line-height: 22px;
         letter-spacing: -1px;
+        min-height: 50px;
     }
 
     .header-title-bottom{

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import FadeIn from 'react-fade-in';
+import ReactTypingEffect from 'react-typing-effect';
 
 import './style.css';
 
 import HeaderImg from '../../Assets/header-img.png';
-
-
 import LoginModal from '../../Components/LoginModal/index';
 
 class Header extends Component{
@@ -18,6 +18,9 @@ class Header extends Component{
     }
 
     render(){
+
+        const text = ["Tenha controle do seu dinheiro.", "Com total transparência.", "Para você gastar com o que realmente importa."]
+
         return(
             <div className="container-header">
                 <LoginModal ref={this.loginModalRef} ></LoginModal>
@@ -26,16 +29,27 @@ class Header extends Component{
                         <p className="header-title-top">
                             Family Finances
                         </p>
+                        
                         <p className="header-title-middle">
-                            Tenha controle do seu dinheiro, com total transparência para você gastar com o que realmente importa.
+                            <ReactTypingEffect
+                                speed={50}
+                                eraseDelay={1000}
+                                typingDelay={1000}
+                                text={text}
+                            />
                         </p>
                         <p className="header-title-bottom">
-                            Somos uma plataforma de controle de gastos totalmente gratuita, feita para ajudar você a economizar todo mês.
+                            Somos uma plataforma de controle de gastos totalmente gratuita, feita para ajudar você a economizar mais todo mês.
                         </p>
 
-                        <button className="header-btn" onClick={this.onLoginClick}>
-                            Entrar
-                        </button>
+                        
+
+                        <FadeIn delay={2700}  transitionDuration={1000} >
+                            <button className="header-btn" onClick={this.onLoginClick}>
+                                Entrar
+                            </button>
+                        </FadeIn>
+
 
                     </div>
                 </div>

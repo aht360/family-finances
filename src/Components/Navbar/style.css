@@ -33,15 +33,21 @@
     color: #49274A;
     margin-left: 50px;
     cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all linear .3s;
 }
   
 .topnav-item:hover {
     text-decoration: none;
     color: #94618E;
-    border-bottom: 1px solid #94618E;
+    border-bottom: 2px solid #94618E;
 }
 
-
+.active-nav{
+    text-decoration: none;
+    color: #94618E;
+    border-bottom: 2px solid #94618E;
+}
 
 .my-brand{
     font-family: Ubuntu;
@@ -72,6 +78,10 @@
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
+.topnav-content{
+    display: flex;
+}
+
 
 @media only screen and (max-width: 1200px){
     .topnav-item {
@@ -80,6 +90,10 @@
     }
     .my-brand{
         margin-left: 15px;
+    }
+
+    .topnav-content{
+        margin-right: 10px;
     }
 
 }

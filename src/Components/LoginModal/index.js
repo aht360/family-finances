@@ -36,6 +36,7 @@ class LoginModal extends React.Component {
                     dialogClassName='custom-dialog'
                     centered
                     style={{backgroundColor: "rgba(255, 255, 255, 0.8)"}}
+                    animation={false}
                 >
                     <Modal.Body className="modal-body">
                         <FontAwesomeIcon icon={faTimes} onClick={this.handleClose} className="close-icon-modal"/>
