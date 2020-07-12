@@ -153,7 +153,7 @@ class Gastos extends React.Component{
     
                                 <div className="total-row">
                                     <p className="total-month-style">
-                                        Total:
+                                        Total Mensal:
                                     </p>
                                     <p className="total-month-style-content">
                                         {(total[index]).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
@@ -163,6 +163,15 @@ class Gastos extends React.Component{
                             
                         )
                     }
+
+                        <div className="container-totalglobal">
+                            <p className="total-global">
+                                Total Global:
+                            </p>
+                            <p className="total-global">
+                                {(total_global).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                            </p>
+                        </div>
                     </>
 
                 }

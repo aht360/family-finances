@@ -7,6 +7,7 @@
     width: 275px;
     padding: 0px;
     margin-bottom: 20px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .container-card-title-master{
