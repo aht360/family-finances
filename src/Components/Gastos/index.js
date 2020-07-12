@@ -11,7 +11,8 @@ class Gastos extends React.Component{
         this.state = {
             gastos: [],
             gastos_mes: [ [], [], [], [], [], [], [], [], [], [], [], [] ],
-            total: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            total: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            total_global: 0
         }
     }
 
@@ -66,6 +67,7 @@ class Gastos extends React.Component{
         this.setState({gastos_mes})
         
         var total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var total_global = 0
         for (let i = 0; i < gastos_mes.length; i++) {
             var aux = 0
             for (let j = 0; j < gastos_mes[i].length; j++) {
@@ -75,9 +77,12 @@ class Gastos extends React.Component{
                 }
             }
             total[i] = aux;
+            total_global += aux;
         }
 
         this.setState({total});
+        this.setState({total_global});
+        
         
     }
 
@@ -117,39 +122,52 @@ class Gastos extends React.Component{
 
     render(){
 
-        const { gastos_mes, total } = this.state;
+        const { gastos_mes, total, total_global } = this.state;
 
 
         return(
             <div className="container-gastos">
-
                 {
-                    gastos_mes.map( (mes, index) =>
-                        
-                        total[index] !== 0
-                        &&
-                        <div className="mes-container" key={index}>
+                    total_global === 0 ?
+
+                    <p className="noDataRegistered">
+                        Ooops... Você ainda não registrou nenhum pagamento :(
+                    </p>
+
+                    :
+                    <>
+                    {
+                        gastos_mes.map( (mes, index) =>
                             
-                                <p className="month-title">{this.getMonthName(index)}</p>
-                            {
-                                mes.map( item => 
-                                    <Card key={item.pay._id} pay={item.pay} user={item.user} />
-                                )
-
-                            }
-
-                            <div className="total-row">
-                                <p className="total-month-style">
-                                    Total:
-                                </p>
-                                <p className="total-month-style-content">
-                                    {(total[index]).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                                </p>
+                            total[index] !== 0
+                            &&
+                            <div className="mes-container" key={index}>
+                                
+                                    <p className="month-title">{this.getMonthName(index)}</p>
+                                {
+                                    mes.map( item => 
+                                        <Card key={item.pay._id} pay={item.pay} user={item.user} />
+                                    )
+    
+                                }
+    
+                                <div className="total-row">
+                                    <p className="total-month-style">
+                                        Total:
+                                    </p>
+                                    <p className="total-month-style-content">
+                                        {(total[index]).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        
-                    )
+                            
+                        )
+                    }
+                    </>
+
                 }
+
+                
 
             </div>
         );

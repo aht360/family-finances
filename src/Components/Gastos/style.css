@@ -52,3 +52,18 @@
     line-height: 30px;
     letter-spacing: 0.03em;
 }
+
+.noDataRegistered{
+    color: #F8EEE7;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0px;
+    font-size: 32px;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    min-height: 50vh;
+    text-align: center;
+}
