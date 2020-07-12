@@ -4,15 +4,51 @@
     align-items: center;
     background-color: white;
     border-radius: 4px;
-    width: 300px;
-    padding: 15px;
+    width: 275px;
+    padding: 0px;
     margin-bottom: 20px;
+}
+
+.container-card-title-master{
+    font-family: Ubuntu;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all linear .3s;
+
+    width: 200px;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 5px 0px;
 }
 
 .container-card-title{
     font-family: Ubuntu;
-    font-weight: bold;
-    border-radius: 16px;
+    font-weight: light;
     font-size: 15px;
     transition: all linear .3s;
+
+    width: 200px;
+    text-align: right;
+}
+
+.container-card-row{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0px;
+    line-height: 10px;
+    padding: 0px 30px;
+}
+
+.container-card-content{
+    font-family: Ubuntu;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all linear .3s;
+
+    width: 200px;
+    text-align: left;
 }

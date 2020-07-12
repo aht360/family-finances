@@ -3,5 +3,52 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: 30vh;
+    min-height: 60vh;
+}
+
+.mes-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
+    background: #5b425c;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.month-title{
+    font-size: 32px;
+
+    color: #F8EEE7;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.03em;
+}
+
+.total-row{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.total-month-style{
+    color: #F8EEE7;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.03em;
+}
+
+.total-month-style-content{
+
+    color: #F8EEE7;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.03em;
 }
