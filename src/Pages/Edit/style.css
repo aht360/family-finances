@@ -1,0 +1,10 @@
+.deleteAllbtn{
+    background-color: red;
+    width: 275px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: Ubuntu;
+    color: white;
+    margin-bottom: 20px;
+}

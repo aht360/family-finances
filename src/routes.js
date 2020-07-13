@@ -5,6 +5,7 @@ import Home from './Pages/Home/index';
 import Register from './Pages/Register/index';
 import Cadastrar from './Pages/Cadastrar/index';
 import Acompanhar from './Pages/Acompanhar/index';
+import Edit from './Pages/Edit/index';
 
 
 import { isAuthenticated } from './Services/auth';
@@ -31,6 +32,7 @@ const Routes = () => (
             <Route path="/register" component={Register} />
             <PrivateRoute path="/cadastrar" component={Cadastrar} />
             <PrivateRoute path="/acompanhar" component={Acompanhar} />
+            <PrivateRoute path="/edit" component={Edit} />
         </Switch>
     </BrowserRouter>
 );

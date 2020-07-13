@@ -3,14 +3,9 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-import api from '../../Services/api';
-
 
 class ButtonsClient extends React.Component{
 
-    handleDelete = async () => {
-        await api.get('/deleteAllPayment');
-    }
 
     render(){
         return(
@@ -24,8 +19,8 @@ class ButtonsClient extends React.Component{
                     <Button className="btn-client">Cadastrar</Button>
                 </Link>
 
-                <Link to="/show">
-                    <Button className="btn-client" onClick={this.handleDelete} >Editar</Button>
+                <Link to="/edit">
+                    <Button className="btn-client">Editar</Button>
                 </Link>
                 
 

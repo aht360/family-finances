@@ -21,7 +21,7 @@ class CadastrarHeader extends React.Component{
                     Olá, {user.Name}!
                 </p>
                 <p className="CadastrarHeadersubtitle">
-                    Este é seu extrato atual.
+                    Estas são as operações que você fez. Deseja Fazer alguma alteração?
                 </p>
             </div>
         );
