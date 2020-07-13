@@ -1,6 +1,9 @@
 import React from 'react';
 import './style.css';
 
+import { withRouter } from "react-router-dom";
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import api from '../../Services/api';
@@ -14,6 +17,7 @@ class CadastrarForm extends React.Component{
         this.state = {
             user: props.user,
             Value: 0,
+            opt: 'true',
             Description: '',
             GetDate: ''
         }
@@ -22,9 +26,14 @@ class CadastrarForm extends React.Component{
     handleSubmit = async e => {
         e.preventDefault();
 
-        const { Value, Description, GetDate, user } = this.state;
+        const { Value, Description, GetDate, user, opt } = this.state;
         
         var my_value = Value.replace(",", ".");
+
+
+        if(opt === 'false'){
+            my_value = my_value * (-1);
+        }
         
         const parts = GetDate.split('-');
 
@@ -35,7 +44,7 @@ class CadastrarForm extends React.Component{
 
         await api.post('/payment', { Value: my_value, Description, my_date: str_data, User_id: user._id });
         
-        window.location.reload();
+        this.props.history.push("/acompanhar");
     }
 
 
@@ -45,6 +54,16 @@ class CadastrarForm extends React.Component{
         return(
             <div className="container-cadastrarForm">
                 <form onSubmit={this.handleSubmit}  className="form-cadastrar-pagamento" >
+
+                    <div className="pagamento-form-container">
+                        <p className="pagamento-form-label">
+                            Escolha o tipo de operação:
+                        </p>
+                        <select className="input-pagamento-form select-center" onChange={e => this.setState({ opt: e.target.value })} >
+                            <option value='true' className=" select-center input-pagamento-form">Creditar</option>
+                            <option value='false' className=" select-center input-pagamento-form">Debitar</option>
+                        </select>
+                    </div>
 
                     <div className="pagamento-form-container">
                         <p className="pagamento-form-label">
@@ -92,4 +111,4 @@ class CadastrarForm extends React.Component{
     }
 }
 
-export default CadastrarForm;
+export default withRouter(CadastrarForm);

@@ -59,17 +59,26 @@ class myNavbar extends Component{
 
                         <div className="topnav-content">
                             <FadeIn delay={500} transitionDuration={1000}>
-                                <Link to="/"  className={ active ? "topnav-item" : "topnav-item active-nav" } onClick={ () => this.setState({ active: false }) } >Início</Link>
+                                {
+                                    isAuthenticated() ? 
+
+                                    <Link to="/"  className={ active ? "topnav-item" : "topnav-item " } onClick={ () => this.setState({ active: false }) } >Menu</Link>
+
+                                    :
+                                    
+                                    <Link to="/"  className={ active ? "topnav-item" : "topnav-item " } onClick={ () => this.setState({ active: false }) } >Início</Link>
+                                }    
+                        
                             </FadeIn>
                             <FadeIn delay={500} transitionDuration={1000}>
                                 {
                                     isAuthenticated() ? 
 
-                                    <div className={ active ? "topnav-item active-nav" : "topnav-item" } onClick={this.onLogoutClick} >Sair</div>
+                                    <div className={ active ? "topnav-item " : "topnav-item" } onClick={this.onLogoutClick} >Sair</div>
 
                                     :
                                     
-                                    <div className={ active ? "topnav-item active-nav" : "topnav-item" } onClick={this.onLoginClick} >Entrar</div>
+                                    <div className={ active ? "topnav-item " : "topnav-item" } onClick={this.onLoginClick} >Entrar</div>
                                 }
                                 
                             </FadeIn>

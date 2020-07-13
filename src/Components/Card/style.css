@@ -19,8 +19,9 @@
     width: 200px;
     text-align: center;
     width: 100%;
-    border-bottom: 1px solid #E5E5E5;
-    padding: 5px 0px;
+    border-bottom: 1px solid white;
+    padding: 10px 5px;
+    line-height: 15px;
 }
 
 .container-card-title{
@@ -52,4 +53,12 @@
 
     width: 200px;
     text-align: left;
+}
+
+.green-card{
+    background-color: #bdecb6;
+}
+
+.red-card{
+    background-color: #ff6961;
 }

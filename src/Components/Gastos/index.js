@@ -4,6 +4,11 @@ import {getToken} from '../../Services/auth';
 import './style.css';
 import Card from '../../Components/Card/index';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+
+
+import { Spinner } from 'react-bootstrap';
 class Gastos extends React.Component{
     constructor(){
         super();
@@ -55,7 +60,7 @@ class Gastos extends React.Component{
 
             const parts = my_date.split('/');
             
-            const month = parseInt(parts[1]);
+            const month = parseInt(parts[1]) - 1;
             
             gastos_mes[month].push({
                 pay,
@@ -63,6 +68,36 @@ class Gastos extends React.Component{
             })
             
         }
+
+        for (let i = 0; i < gastos_mes.length; i++) {
+
+            var my_month = gastos_mes[i];
+
+            for (let j = 0; j < my_month.length; j++) {
+
+                for (let k = 0; k < my_month.length-1; k++) {
+
+                    my_date = my_month[k].pay.my_date
+                    var next_date = my_month[k+1].pay.my_date
+                    const parts1 = my_date.split('/');
+                    const parts2 = next_date.split('/')
+                    const day = parseInt(parts1[0])
+                    const next_day = parseFloat(parts2[0])
+                    
+                    if(day > next_day){
+                        let tmp = my_month[k]
+                        my_month[k] = my_month[k+1]
+                        my_month[k+1] = tmp
+                    }
+                    
+                }
+
+
+                
+            }
+            
+        }
+
 
         this.setState({gastos_mes})
         
@@ -89,29 +124,29 @@ class Gastos extends React.Component{
     getMonthName = (key) => {
         
         switch (key) {
-            case 1:
+            case 0:
                 return 'Janeiro'
-            case 2:
+            case 1:
                 return 'Fevereiro'
-            case 3:
+            case 2:
                 return 'Março'
-            case 4:
+            case 3:
                 return 'Abril'
-            case 5:
+            case 4:
                 return 'Maio'
-            case 6:
+            case 5:
                 return 'Junho'
-            case 7:
+            case 6:
                 return 'Julho'
-            case 8:
+            case 7:
                 return 'Agosto'
-            case 9:
+            case 8:
                 return 'Setembro'
-            case 10:
+            case 9:
                 return 'Outubro'
-            case 11:
+            case 10:
                 return 'Novembro'
-            case 12:
+            case 11:
                 return 'Dezembro'
         
             default:
@@ -130,9 +165,9 @@ class Gastos extends React.Component{
                 {
                     total_global === 0 ?
 
-                    <p className="noDataRegistered">
-                        Ooops... Você ainda não registrou nenhum pagamento :(
-                    </p>
+                    <div className="container-acomp-load">
+                        <Spinner animation="border" className="spinneracomp" />
+                    </div>
 
                     :
                     <>
@@ -155,8 +190,14 @@ class Gastos extends React.Component{
                                     <p className="total-month-style">
                                         Total Mensal:
                                     </p>
-                                    <p className="total-month-style-content">
-                                        {(total[index]).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                    <p className={ total[index] > 0 ? "total-month-style-content green-text" : "total-month-style-content red-text" } >
+                                        {(total[index]).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} 
+                                        {
+                                            total[index] > 0 ?
+                                            <FontAwesomeIcon icon={faCheckCircle} className="iconTotalMonth"/>
+                                            :
+                                            <FontAwesomeIcon icon={faTimesCircle} className="iconTotalMonth"/>
+                                        }
                                     </p>
                                 </div>
                             </div>
@@ -164,13 +205,21 @@ class Gastos extends React.Component{
                         )
                     }
 
-                        <div className="container-totalglobal">
+                        <div className={ total_global > 0 ? "container-totalglobal green-card" : "container-totalglobal red-card" }  >
                             <p className="total-global">
                                 Total Global:
                             </p>
                             <p className="total-global">
                                 {(total_global).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                {
+                                    total_global > 0 ?
+                                    <FontAwesomeIcon icon={faCheckCircle} className="iconTotalMonth"/>
+                                    :
+                                    <FontAwesomeIcon icon={faTimesCircle} className="iconTotalMonth"/>
+                                }   
                             </p>
+
+                            
                         </div>
                     </>
 

@@ -40,7 +40,6 @@ class LoginModal extends React.Component {
 
         this.setState({ waiting: true });
 
-        console.log(Email, Password)
 
         try {
             const response = await api.post("/authenticate", { Email, Password });

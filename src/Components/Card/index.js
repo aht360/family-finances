@@ -20,7 +20,7 @@ class Card extends React.Component{
         const { pay, user } = this.state;
 
         return(
-            <div className="container-card">
+            <div className={ pay.Value > 0 ? "container-card green-card" : "container-card red-card" } >
                 <p className="container-card-title-master">
                     {pay.Description}
                 </p>

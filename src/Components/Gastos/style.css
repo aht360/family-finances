@@ -28,6 +28,15 @@
     line-height: 30px;
     letter-spacing: 0.03em;
 }
+.container-acomp-load{
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+.spinneracomp{
+    color: white;
+}
 
 .total-row{
     display: flex;
@@ -73,11 +82,11 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-
+    align-items: center;
     background-color: #F8EEE7;
     margin-bottom: 20px;
     line-height: 15px;
-    padding: 30px;
+    padding: 25px;
     border-radius: 4px;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
@@ -89,4 +98,18 @@
     font-style: normal;
     font-weight: bold;
     letter-spacing: -0.5px;
+}
+
+.green-text{
+    color: #5fc74f;
+    font-weight: bold;
+}
+
+.red-text{
+    color: #ff6961;
+}
+
+.iconTotalMonth{
+    margin-left: 10px;
+    
 }
